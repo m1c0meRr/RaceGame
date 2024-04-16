@@ -39,7 +39,6 @@ class GameViewController: UIViewController {
     }()
     
     private let carImageView: UIImageView = {
-     //   let image = UIImage(named: "Car0")
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Car0")
         imageView.frame = CGRect(x: 125, y: 600, width: 60, height: 60)
@@ -56,7 +55,6 @@ class GameViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.borderColor = UIColor.blue.cgColor
         button.layer.borderWidth = 6
-//        button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -68,7 +66,6 @@ class GameViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.borderColor = UIColor.blue.cgColor
         button.layer.borderWidth = 6
-//        button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -87,34 +84,29 @@ class GameViewController: UIViewController {
     private let scoreLabel: UILabel = {
         let label = UILabel()
         label.text = "CЧЕТ: 0"
-//        label.backgroundColor = .white
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    private var timer: Timer?
+    private var timer1: Timer?
     var speed = 1.0
     var score = 0
     var crash = false
-    private var timer: Timer?
-    private var timer1: Timer?
     var duration = 5.0
     var delay = 1.0
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-       
+        
         rightButton.layer.cornerRadius = rightButton.frame.width / 2
         leftButton.layer.cornerRadius = leftButton.frame.width / 2
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-      //  guard let user = DataBase.shared.activeUser else { return }
-    
-    //  print(user.car)
         
         setTarget()
         setupViews()
@@ -144,7 +136,7 @@ class GameViewController: UIViewController {
         carImageView.image = UIImage(named: "car\(user.car)")
         
         speed = user.speed
-      
+        
         if speed != 0.0 {
             speed += 3.0
         }
@@ -154,16 +146,16 @@ class GameViewController: UIViewController {
     }
     
     private func moveCarsBarrier(carBarrier: UIImageView) {
-       
+        
         UIView.animate(withDuration: 1.0,
                        delay: 3.0,
                        animations: { () -> Void in
             carBarrier.frame.origin.y += self.view.frame.height
         }, completion: { (finished: Bool) -> Void in
-           
-             
+            
+            
             carBarrier.frame.origin.y = self.view.frame.height
-           
+            
             if self.crash != true {
                 self.score += 1
                 self.scoreLabel.text = "CЧЕТ:\(self.score)"
@@ -190,7 +182,7 @@ class GameViewController: UIViewController {
             if self.carImageView.layer.presentation()!.frame.intersects(self.barrierLeftImageView.layer.presentation()!.frame) || self.carImageView.layer.presentation()!.frame.intersects(self.barrierRightImageView.layer.presentation()!.frame)  {
                 self.crash(scoreInt: self.score)
             } else {
-               // print("Wruuuumm-m-m")
+                
             }
         })
     }
@@ -217,13 +209,12 @@ class GameViewController: UIViewController {
     }
     
     private func move() {
-      
+        
         if crash != true {
             let imageRand = Int.random(in: 0...7)
             
             self.barrierLeftImageView.image = UIImage(named: "car\(imageRand)")
             self.barrierRightImageView.image = UIImage(named: "car\(imageRand)")
-            // }
             
             switch Int.random(in: 0...1) {
             case 0:
@@ -275,17 +266,17 @@ class GameViewController: UIViewController {
     }
     
     @objc private func startButtonTapped() {
-     
+        
         self.crash = false
-            UIView.animate(withDuration: 0.2) {
-                self.carImageView.transform = .identity
-                self.startButton.isHidden = true
-                self.moveCars()
-                self.crashObserver()
-                self.leftButton.backgroundColor = .white.withAlphaComponent(0.35)
-                self.rightButton.backgroundColor = .white.withAlphaComponent(0.35)
-                self.score = 0
-                self.scoreLabel.text = "CЧЕТ:\(self.score)"
+        UIView.animate(withDuration: 0.2) {
+            self.carImageView.transform = .identity
+            self.startButton.isHidden = true
+            self.moveCars()
+            self.crashObserver()
+            self.leftButton.backgroundColor = .white.withAlphaComponent(0.35)
+            self.rightButton.backgroundColor = .white.withAlphaComponent(0.35)
+            self.score = 0
+            self.scoreLabel.text = "CЧЕТ:\(self.score)"
         }
         self.rightButton.isEnabled = true
         self.leftButton.isEnabled = true

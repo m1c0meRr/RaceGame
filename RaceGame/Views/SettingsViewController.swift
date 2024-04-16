@@ -44,9 +44,6 @@ class SettingsViewController: UIViewController {
     private let avatarButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .clear
-//        button.setTitle("save", for: .normal)
-//        button.setTitleColor(.white, for: .normal)
-//        button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -66,10 +63,10 @@ class SettingsViewController: UIViewController {
         let textField = UITextField()
         textField.text = nil
         textField.placeholder = "your name"
-        textField.borderStyle = .roundedRect // стиль границы
-        textField.clearButtonMode = .always //
+        textField.borderStyle = .roundedRect
+        textField.clearButtonMode = .always
         textField.keyboardType = .default
-        textField.returnKeyType = .default //
+        textField.returnKeyType = .default
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -162,7 +159,6 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = .orange
         
         view.addSubview(scrollView)
-//        scrollView.addSubview(avatarLabel)
         scrollView.addSubview(avatarImageView)
         scrollView.addSubview(avatarButton)
         scrollView.addSubview(nameLabel)
@@ -196,7 +192,7 @@ class SettingsViewController: UIViewController {
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 150),
             avatarImageView.widthAnchor.constraint(equalToConstant: 150),
-        
+            
             avatarButton.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             avatarButton.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             avatarButton.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor),
@@ -215,7 +211,7 @@ class SettingsViewController: UIViewController {
             
             carImageView.topAnchor.constraint(equalTo: carLabel.bottomAnchor, constant: 40),
             carImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-           
+            
             rightButton.centerYAnchor.constraint(equalTo: carImageView.centerYAnchor),
             rightButton.leadingAnchor.constraint(equalTo: carImageView.trailingAnchor, constant: -16),
             rightButton.widthAnchor.constraint(equalToConstant: 100),
@@ -235,16 +231,16 @@ class SettingsViewController: UIViewController {
             saveNameButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 50),
             saveNameButton.centerXAnchor.constraint(equalTo: segmentedControl.centerXAnchor),
             saveNameButton.widthAnchor.constraint(equalToConstant: 350),
-            saveNameButton.heightAnchor.constraint(equalToConstant: 150),
+            saveNameButton.heightAnchor.constraint(equalToConstant: 50),
             saveNameButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50)
         ])
     }
     
     @objc private func segmentedChanged() {
         if segmentedControl.selectedSegmentIndex == 0 {
-     
+            
         } else {
-           
+            
         }
     }
     
@@ -263,7 +259,7 @@ class SettingsViewController: UIViewController {
     }
     
     @objc private func saveNameButtonTapped() {
-    
+        
         let nameText = nameTextField.text ?? ""
         let speed = segmentedControl.selectedSegmentIndex
         
@@ -277,7 +273,6 @@ class SettingsViewController: UIViewController {
         } else {
             self.alertOk(title: "Ошибка", message: "Введите имя!")
         }
-        //nameLabel.text = nameTextField.text
     }
     
     @objc private func leftButtonTapped() {
@@ -287,8 +282,6 @@ class SettingsViewController: UIViewController {
         } else {
             carImageView.image = UIImage(named: "car0")
         }
-       
-      //  imageCar = "car0"
     }
     
     @objc private func rightButtonTapped() {

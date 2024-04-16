@@ -66,6 +66,7 @@
 		479983792B9C7BBD00584C27 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4CD957772BA3577000AEE2A7 /* TableViewCell.swift */,
 				4799837A2B9C7BE100584C27 /* AvatarCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -90,9 +91,8 @@
 		47D951352B7E34D9000F4BA6 /* RaceGame */ = {
 			isa = PBXGroup;
 			children = (
-				4CD957762BA3574C00AEE2A7 /* Cell */,
-				4C5510CF2BA0B1CF00CE7179 /* Service */,
 				47D9514A2B7E3513000F4BA6 /* Application */,
+				4C5510CF2BA0B1CF00CE7179 /* Service */,
 				479983742B9C6E7600584C27 /* Models */,
 				47D9514C2B7E3532000F4BA6 /* Views */,
 				479983792B9C7BBD00584C27 /* Cells */,
@@ -140,14 +140,6 @@
 				4C5510D22BA0B26400CE7179 /* UserModel.swift */,
 			);
 			name = Service;
-			sourceTree = "<group>";
-		};
-		4CD957762BA3574C00AEE2A7 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				4CD957772BA3577000AEE2A7 /* TableViewCell.swift */,
-			);
-			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

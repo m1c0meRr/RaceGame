@@ -19,7 +19,7 @@ class RecordsViewController: UITableViewController {
     
     private func setupViews() {
         title = "Рекорды"
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.idCollectionViewCell)
     }
     

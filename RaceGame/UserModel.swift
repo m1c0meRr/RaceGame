@@ -2,7 +2,7 @@
 //  UserModel.swift
 //  RaceGame
 //
-//  Created by Tim Akhmetov on 12.03.2024.
+//  Created by Sergey Savinkov on 12.03.2024.
 //
 
 import Foundation

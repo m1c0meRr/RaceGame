@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  RaceGame
 //
-//  Created by Tim Akhmetov on 14.03.2024.
+//  Created by Sergey Savinkov on 14.03.2024.
 //
 
 import Foundation
@@ -18,23 +18,23 @@ class TableViewCell: UITableViewCell {
         return imageView
     }()
     
-       private let nameLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Vasya"
-           label.font = UIFont.boldSystemFont(ofSize: 14)
-            label.textColor = .black
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Vasya"
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private let scoreLabel: UILabel = {
-         let label = UILabel()
-         label.text = "0"
+        let label = UILabel()
+        label.text = "0"
         label.font = UIFont.boldSystemFont(ofSize: 14)
-         label.textColor = .black
-         label.translatesAutoresizingMaskIntoConstraints = false
-         return label
-     }()
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     static let idCollectionViewCell = "idCollectionViewCell"
     
@@ -44,9 +44,9 @@ class TableViewCell: UITableViewCell {
         setupViews()
         setConstraints()
     }
-   
+    
     private func setupViews() {
-        self.backgroundColor = .red
+        self.backgroundColor = .lightGray
         
         addSubview(cellImageView)
         addSubview(nameLabel)
